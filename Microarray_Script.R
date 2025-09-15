@@ -81,3 +81,7 @@ writexl::write_xlsx(fold_change_df, "microarray.xlsx")
 # Save as text and CSV files
 write.table(fold_change_table, file = "microarray_TvsC.txt", sep = "\t", quote = FALSE, row.names = TRUE, col.names = NA)
 write.table(fold_change_table, file = "microarray_TvsC.csv", sep = ",", quote = FALSE, row.names = TRUE, col.names = NA)
+
+# Example filtering
+filtered_genes <- fold_change_table[abs(fold_change_table$`T1 vs C`) >= 1 & fold_change_table$p_val <= 0.05, ]
+View(filtered_genes)
